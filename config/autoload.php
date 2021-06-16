@@ -18,7 +18,7 @@ if(!empty($_GET['section'])) {
     $controllerName = '\\controllers\\'.ucfirst($_GET['section']).'Controller';
     $action = !empty($_GET['action']) ? $_GET['action'] : 'index';
     $actionName = 'action'.ucfirst($action);
-
+    
     // Call the action
     /** @var \controllers\BaseController $controller */
     $controller = new $controllerName;

@@ -1,20 +1,20 @@
 <?php
 
-namespace clases;
+namespace classes;
 
+use classes\BaseModel;
 use PDO;
 
-class Cursos 
+class Cursos extends BaseModel
 {
-    private $tableName = 'cursos';
-    private $connPDO;
-    public function __construct ()
+
+    public function __construct()
     {
-        global $connPDO;
-        $this->connPDO = $connPDO;
+        parent::__construct();
+        $this->tableName = 'cursos';
     }
 
-    public function insertCurso ($nivel, $nombre) 
+    public function insertCurso($nivel, $nombre)
     {
         $query = "INSERT INTO {$this->tableName} (nivel, nombre) VALUES (:nivel, :nombre)";
         $params = [
@@ -26,35 +26,35 @@ class Cursos
             $stmt->bindValue($param, $value);
         }
         return $stmt->execute();
-    } 
+    }
 
-    public function getAll () 
+    public function getAll()
     {
         $query = "SELECT * FROM cursos ORDER BY nivel ASC";
         $stmt = $this->connPDO->prepare($query);
-        if($stmt->execute()) {
+        if ($stmt->execute()) {
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         return [];
     }
 
-    public function getByID ($id)
+    public function getByID($id)
     {
         $query = "SELECT * FROM {$this->tableName} WHERE id=:id";
         $stmt = $this->connPDO->prepare($query);
-        if($stmt->execute([':id'=>$id])) {
+        if ($stmt->execute([':id' => $id])) {
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }
 
         return [];
     }
 
-    public function getAlumnosByID ($id)
+    public function getAlumnosByID($id)
     {
         $query = "SELECT * FROM alumnos WHERE id_curso=:id";
         $stmt = $this->connPDO->prepare($query);
-        if($stmt->execute([':id'=>$id])) {
+        if ($stmt->execute([':id' => $id])) {
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 

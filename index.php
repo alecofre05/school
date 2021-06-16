@@ -1,14 +1,3 @@
-<?php 
-
-require_once('config/conexion.php'); 
-require_once('config/loadClasses.php');
-
-use clases\Alumnos;
-use clases\Cursos;
-use clases\Materias;
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +23,7 @@ use clases\Materias;
                 $path = 'views/'.$_GET['section'].'/'.$filename.'.php';
 
                 if(file_exists($path)) {
-                    include($path);
+                    require_once('config/autoload.php');
                 } else {
                     include('404.php');
                 }
@@ -44,4 +33,10 @@ use clases\Materias;
 
     </div>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<?php if(!empty($_GET['section'])) { ?>
+    <script src="/js/<?=$_GET['section']?>.js"></script>
+<?php } ?>
+
 </html>

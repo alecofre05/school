@@ -1,20 +1,20 @@
 <?php
 
-namespace clases;
+namespace classes;
 
+use classes\BaseModel;
 use PDO;
 
-class Profesor 
+class Profesor extends BaseModel
 {
-    private $tableName = 'profesores';
-    private $connPDO;
-    public function __construct ()
+
+    public function __construct()
     {
-        global $connPDO;
-        $this->connPDO = $connPDO;
+        parent::__construct();
+        $this->tableName = 'profesores';
     }
 
-    public function insertProfesor ($nombre, $apellido, $materia) 
+    public function insertProfesor($nombre, $apellido, $materia)
     {
         $query = "INSERT INTO {$this->tableName} (nombre, apellido, id_materias) VALUES (:name, :apellido, :materia)";
         $params = [

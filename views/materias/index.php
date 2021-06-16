@@ -1,13 +1,22 @@
 <?php
+/**
+ * @var $materias array
+ */
+?>
 
-require_once('config/conexion.php'); 
-require_once('config/loadClasses.php');
+<table>
+    <th>id</th>
+    <th>nombre</th>
+    <th></th>
 
-use clases\Materias;
-
-
-        include ("views/materias/formularioMateria.php"); 
-        $materiasModel = new Materias();
-        $materias = $materiasModel->getAll();
-        include ("views/materias/form_mostrarMateria.php");   
-?> 
+    <?php if (count($materias) > 0) { ?>
+        <?php foreach ($materias as $materia) { ?>
+            <tr>
+                <td><?php echo $materia['id'] ?></td>
+                <td><?php echo $materia['nombre'] ?></td>
+                <td><a href="<?=getUrl('materias', 'view', ['id' => $materia['id']])?>">Ver</a></td>
+            </tr>
+        <?php } ?>
+    <?php } ?>
+</table>
+    

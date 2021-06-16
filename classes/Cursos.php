@@ -28,7 +28,7 @@ class Cursos extends BaseModel
         return $stmt->execute();
     }
 
-    public function getAll()
+    public function getAll($search='')
     {
         $query = "SELECT * FROM cursos ORDER BY nivel ASC";
         $stmt = $this->connPDO->prepare($query);

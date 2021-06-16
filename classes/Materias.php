@@ -32,7 +32,7 @@ class Materias extends BaseModel
         return $stmt->execute();
     }
 
-    public function getAll()
+    public function getAll($search='')
     {
         $query = "SELECT * FROM {$this->tableName} ORDER BY nombre ASC";
         $stmt = $this->connPDO->prepare($query);

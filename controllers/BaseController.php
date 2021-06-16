@@ -3,7 +3,7 @@
 
 namespace controllers;
 
-class BaseController
+abstract class BaseController
 {
     protected $controllerFolder;
     public $postValues = [];

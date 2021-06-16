@@ -4,7 +4,7 @@
 namespace classes;
 
 
-class BaseModel
+abstract class BaseModel
 {
     protected $tableName;
     protected $connPDO;

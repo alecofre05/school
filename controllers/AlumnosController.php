@@ -25,7 +25,7 @@ class AlumnosController extends BaseController
      */
     public function actionIndex()
     {
-        $search = isset($_GET['buscar']) ? $_GET['buscar'] : '';
+        $search = isset($this->getValues['buscar']) ? $this->getValues['buscar'] : '';
         $alumnoModel = new Alumnos();
         $cursosModel = new Cursos();
 
@@ -41,7 +41,7 @@ class AlumnosController extends BaseController
      */
     public function actionView()
     {
-        $id = isset($_GET['id']) ? $_GET['id'] : '';
+        $id = isset($this->getValues['id']) ? $this->getValues['id'] : '';
         if(!empty($id)) {
             $alumnoModel = new Alumnos();
             $alumno = $alumnoModel->getByID($id);
@@ -63,8 +63,8 @@ class AlumnosController extends BaseController
      */
     public function actionCambiarCurso()
     {
-        $curso = $_POST['curso'];
-        $id = $_POST['id'];
+        $curso = $this->postValues['curso'];
+        $id = $this->postValues['id'];
         $alumnoModel = new Alumnos();
         $resultado = "No se pudo cambiar el curso";
         if($alumnoModel->updateCurso($id, $curso)) {

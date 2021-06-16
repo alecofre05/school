@@ -9,7 +9,6 @@ foreach(glob("classes/*.php") as $classes){
     require_once $classes;
 }
 
-
 require_once(dirname(__FILE__) . '/../controllers/BaseController.php');
 foreach(glob("controllers/*.php") as $controllers){
     require_once $controllers;

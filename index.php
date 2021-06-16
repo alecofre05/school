@@ -20,8 +20,7 @@
 
         <div class="contenedor">
             <?php if(isset($_GET['section'])) {
-                $filename = !empty($_GET['action']) ? $_GET['action'] : 'index';
-                $path = 'views/'.$_GET['section'].'/'.$filename.'.php';
+                $path = 'views/'.$_GET['section'];
 
                 if(file_exists($path)) {
                     require_once('config/autoload.php');
@@ -37,7 +36,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <?php if(!empty($_GET['section'])) { ?>
-    <script src="/js/<?=$_GET['section']?>.js"></script>
+    <script src="js/<?=$_GET['section']?>.js"></script>
 <?php } ?>
 
 </html>

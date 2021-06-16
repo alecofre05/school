@@ -1,6 +1,6 @@
 $(document).on('ready',function(){
     $('#btn-ingresar').click(function(){
-        var url = "/api.php?section=alumnos&action=insertar";
+        var url = "/api.php?section=alumnos&action=crear";
         $.ajax({
             type: "POST",
             url: url,

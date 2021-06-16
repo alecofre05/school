@@ -2,5 +2,5 @@
 
 error_reporting(E_ERROR);
 
-const ROOTFOLDER = "conectarbd";
+const ROOTFOLDER = "school";
 const SITEURL = "http://localhost/school/";

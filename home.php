@@ -1,1 +1,1 @@
-<h1>Bienvenido al colegio</h1>
+<h1 class="display-4 mt-3 ms-3">Bienvenido al colegio</h1>

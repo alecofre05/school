@@ -4,19 +4,19 @@
  * @var $cursos array
  */
 ?>
-
+<link rel="stylesheet" href="./views/alumnos/style.css">
 <div id="#resp">
-    <ul>
-        <li><?php echo $alumno['id'] ?></li>
-        <li><?php echo $alumno['nombre'] ?></li>
-        <li><?php echo $alumno['apellidoPaterno'] ?></li>
-        <li><?php echo $alumno['apellidoMaterno'] ?></li>
-        <li><?php echo $alumno['curso'] ?></li>
+    <ul class="list-group">
+        <li class="list-group-item"><?php echo $alumno['id'] ?></li>
+        <li class="list-group-item"><?php echo $alumno['nombre'] ?></li>
+        <li class="list-group-item"><?php echo $alumno['apellidoPaterno'] ?></li>
+        <li class="list-group-item"><?php echo $alumno['apellidoMaterno'] ?></li>
+        <li class="list-group-item"><?php echo $alumno['curso'] ?></li>
     </ul>
 </div>
 
 <form action="cambiarCurso.php" method="post">
-    <select name="curso" id="curso">
+    <select name="curso" id="curso" class="form-select mt-2">
         <?php if (!empty($cursos)) { ?>
             <option value="">Cambiar curso</option>
             <?php foreach ($cursos as $curso) { ?>
@@ -28,5 +28,5 @@
     </select>
     <br>
     <input type="hidden" name="id" value="<?= $alumno['id'] ?>">
-    <input type="submit" value="Enviar">
+    <input type="submit" value="Enviar" class="btn btn-success ms-3>
 </form>

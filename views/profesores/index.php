@@ -4,12 +4,13 @@
  */
 ?>
 
-<table>
+<table class="table mt-3">
+    <thead class="table-light">
     <th>id</th>
     <th>Nombre</th>
     <th>Apellido</th>
     <th></th>
-
+    </thead>
     <?php if (count($profesores) > 0) { ?>
         <?php foreach ($profesores as $profesor) { ?>
             <tr>

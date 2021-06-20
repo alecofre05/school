@@ -1,9 +1,10 @@
-<h3>Agregar alumno</h3>
+<link rel="stylesheet" href="./views/alumnos/style.css">
+<h3 class="display-6 ms-3">Agregar alumno</h3>
 <form id="formulario" method="post">
-    <input type="text" name="nombre" placeholder="Nombre"><br>
-    <input type="text" name="apellidoPaterno" placeholder="apellidoPaterno"><br>
-    <input type="text" name="apellidoMaterno" placeholder="apellidoMaterno"><br>
-    <select name="curso" id="curso">
+    <input class="form-label ms-3" type="text" name="nombre" placeholder="Nombre"><br>
+    <input class="form-label ms-3" type="text" name="apellidoPaterno" placeholder="Apellido paterno"><br>
+    <input class="form-label ms-3" type="text" name="apellidoMaterno" placeholder="Apellido materno"><br>
+    <select name="curso" id="curso" class="form-select ms-3">
         <?php if (!empty($cursos)) { ?>
             <option value="">Seleccione el curso</option>
             <?php foreach ($cursos as $curso) { ?>
@@ -14,5 +15,7 @@
         <?php } ?>
     </select>
     <br>
-    <input type="submit" value="Enviar" id="btn-ingresar">
+    <input type="submit" value="Enviar" id="btn-ingresar" class="btn btn-success ms-3">
 </form>
+
+

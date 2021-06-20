@@ -1,18 +1,20 @@
 <?php 
 if(!empty($curso)) {?>
-<ul>
-    <li><?php echo $curso['id'] ?></li>
-    <li><?php echo $curso['nivel'], $curso['nombre'] ?></li>
+<ul class="ms-3">
+    <li class="fw-bold"><?php echo $curso['id'] ?></li>
+    <li class="fw-bold"><?php echo $curso['nivel'], $curso['nombre'] ?></li>
 </ul>
 <hr>
 
 <h3>Alumnos</h3>
-<table>
+<table class="table mt-3">
+    <thead class="table-light">
     <th>id</th>
     <th>nombre</th>
     <th>Apellido Paterno</th>
     <th>Apellido Materno</th>
     <th></th>
+    </thead>
 <?php
     foreach($alumnos as $alumno) {?>
     <tr>

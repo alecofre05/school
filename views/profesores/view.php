@@ -6,9 +6,9 @@
 ?>
 
 <div id="#resp">
-    <ul>
-        <li><?php echo $profesor['id'] ?></li>
-        <li><?php echo $profesor['nombre'] ?></li>
-        <li><?php echo $profesor['apellido'] ?></li>
+    <ul class="list-group" class="list-group-item">
+        <li class="list-group-item"><?php echo $profesor['id'] ?></li>
+        <li class="list-group-item"><?php echo $profesor['nombre'] ?></li>
+        <li class="list-group-item"><?php echo $profesor['apellido'] ?></li>
     </ul>
 </div>

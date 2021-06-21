@@ -21,5 +21,8 @@
             </tr>
         <?php } ?>
     <?php } ?>
+    <?php include("views/cursos/formulario_curso.php"); ?>
 </table>
+
+
     

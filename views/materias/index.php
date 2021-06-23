@@ -19,5 +19,6 @@
             </tr>
         <?php } ?>
     <?php } ?>
+    <?php include("views/materias/formularioMateria.php"); ?>
 </table>
     

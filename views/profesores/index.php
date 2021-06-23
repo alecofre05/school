@@ -21,5 +21,6 @@
             </tr>
         <?php } ?>
     <?php } ?>
+    <?php include("views/profesores/formulario.php"); ?>
 </table>
     

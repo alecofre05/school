@@ -14,19 +14,23 @@ class Profesor extends BaseModel
         $this->tableName = 'profesores';
     }
 
-    public function insertProfesor($nombre, $apellido, $materia)
+    public function insertProfesor($nombre, $apellido)
     {
-        $query = "INSERT INTO {$this->tableName} (nombre, apellido, id_materias) VALUES (:name, :apellido, :materia)";
+        $query = "INSERT INTO {$this->tableName} (nombre, apellido) VALUES (:name, :apellido)";
         $params = [
             ':name' => $nombre,
-            ':apellido' => $apellido,
-            ':materia' => $materia
+            ':apellido' => $apellido
         ];
         $stmt = $this->connPDO->prepare($query);
         foreach ($params as $param => $value) {
             $stmt->bindValue($param, $value);
         }
-        return $stmt->execute();
+        $ret = $stmt->execute();
+        if(!$ret) {
+            var_dump($stmt->errorInfo());
+            die();
+        }
+        return $ret;
     }
 
     public function getAll($search = '')

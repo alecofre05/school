@@ -52,4 +52,14 @@ class CursosController extends BaseController
         }
         throw new \Exception('El ID está vacío');
     }
+
+    public function actionCrear()
+    {
+        $nivel = $this->postValues['nivel'];
+        $nombre = $this->postValues['nombre'];
+        $cursoModel = new Cursos ();
+        $resultado = $cursoModel->insertCurso($nivel, $nombre);
+
+        echo json_encode(["success" => $resultado, "msg" => $resultado ? "Guardó" : "No guardó"]);
+    }
 }

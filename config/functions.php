@@ -6,11 +6,11 @@
  * @param array $params
  * @return string
  */
-function getUrl($controller = '', $action = '', $params = []) {
+function getUrl($controller = '', $action = '', $params = [], $api=false) {
     $paramsString = '';
     foreach ( $params as $param => $value ) {
         $paramsString .= '&'.$param.'='.$value;
     }
-
-    return SITEURL.'index.php?section='.$controller.'&action='.$action.$paramsString;
+    $loader = $api ? "api" : "index";
+    return SITEURL.$loader.'.php?section='.$controller.'&action='.$action.$paramsString;
 }

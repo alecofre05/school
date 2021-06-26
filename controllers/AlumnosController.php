@@ -79,16 +79,13 @@ class AlumnosController extends BaseController
      */
     public function actionCrear()
     {
-        $nombre = $_POST['nombre'];
-        $apellidoPaterno = $_POST['apellidoPaterno'];
-        $apellidoMaterno = $_POST['apellidoMaterno'];
-        $curso = $_POST['curso'];
+        $nombre = $this->postValues['nombre'];
+        $apellidoPaterno = $this->postValues['apellidoPaterno'];
+        $apellidoMaterno = $this->postValues['apellidoMaterno'];
+        $curso = $this->postValues['curso'];
         $alumnoModel = new Alumnos ();
-        $resultado = "No guardo";
-        if ($alumnoModel->insertAlumno($nombre, $apellidoPaterno, $apellidoMaterno, $curso)) {
-            $resultado = "Guardo";
-        }
+        $resultado = $alumnoModel->insertAlumno($nombre, $apellidoPaterno, $apellidoMaterno, $curso);
 
-        return $resultado;
+        echo json_encode(["success" => $resultado, "msg" => $resultado ? "Guardó" : "No guardó"]);
     }
 }

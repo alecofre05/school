@@ -1,13 +1,24 @@
-$(document).on('ready',function(){
-    $('#btn-ingresar').click(function(){
-        var url = "/api.php?section=alumnos&action=crear";
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: $("#formulario").serialize(),
-            success: function(data){
-                $('#resp').html(data);
-            }
-        });
+$('body').on("click", "#submitAlumno", function(e){
+    e.preventDefault();
+    //e.stopPropagation();
+    var dataForm = $("#formulario").serialize();
+    var url = $("#formulario").data("url");
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: dataForm,
+        dataType: "json",
+        success: function(data){
+            $('#alertContainer').bootstrapAlert({
+                message: data.msg,
+                type: data.success ? 'success' : 'warning',
+                dismissible: true
+              });
+            console.log(data);
+            $("#formularioAlumnoModal").modal("hide");
+        }
     });
+});
+
+$(document).on('ready',function(){ 
 });
